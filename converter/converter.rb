@@ -49,7 +49,7 @@ def output_img_path(level, header, id, lang)
 end
 
 def img_url_for_app(level, header, id, lang)
-  "/content/locales/#{lang}/images/level-#{level}-#{header}-#{id}.png"
+  "content/locales/#{lang}/images/level-#{level}-#{header}-#{id}.png"
 end
 
 def write_to_file(data, file_path)
@@ -67,8 +67,8 @@ end
 
 def do_image_conversion(text, img_path)
   # log "Converting: '#{text}' into #{img_path}"
-  exit_status = system('phantomjs', 'convert-to-png.js', text, img_path)
-  raise "Conversion failure: failed to convert '#{text}' into #{img_path}. phantomjs exited with #{exit_status}" unless exit_status 
+  # exit_status = system('phantomjs', 'convert-to-png.js', text, img_path)
+  # raise "Conversion failure: failed to convert '#{text}' into #{img_path}. phantomjs exited with #{exit_status}" unless exit_status 
 end
 
 def log(message)
@@ -84,10 +84,11 @@ en_lines = []
 csv_files.each do |csv_file|
 
   CSV.foreach(csv_file, csv_options) do |row|
-    level = row[:level]
-    id = row[:id]
     kh_line = {} 
     en_line = {} 
+
+    level = row[:level]
+    id    = row[:id]
 
     # create kh stuff 
     # ###############
@@ -101,7 +102,9 @@ csv_files.each do |csv_file|
         do_image_conversion(kh_text, output_img_path(level, header, id, 'kh'))
       end
 
-      kh_line['url'] = img_url_for_app(level, header, id, 'kh')
+      kh_line['url']   = img_url_for_app(level, header, id, 'kh')
+      kh_line['id']    = id
+      kh_line['level'] = level
     end
 
     # create en stuff 
@@ -116,7 +119,9 @@ csv_files.each do |csv_file|
         do_image_conversion(en_text, output_img_path(level, header, id, 'en'))
       end
 
-      en_line['url'] = img_url_for_app(level, header, id, 'en')
+      en_line['url']   = img_url_for_app(level, header, id, 'en')
+      en_line['id']    = id
+      en_line['level'] = level
     end
 
     # store each line before moving on to the next one
