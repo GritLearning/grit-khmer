@@ -71,6 +71,14 @@ def do_image_conversion(text, img_path)
   # raise "Conversion failure: failed to convert '#{text}' into #{img_path}. phantomjs exited with #{exit_status}" unless exit_status 
 end
 
+def convert_to_array(string)
+  string.split(/\s*,\s*/)
+end
+
+def remove_lang_prefix(string)
+  string.gsub(/^(kh|en)_/, '')
+end
+
 def log(message)
   puts message
 end
@@ -87,8 +95,8 @@ csv_files.each do |csv_file|
     kh_line = {} 
     en_line = {} 
 
-    level = row[:level]
-    id    = row[:id]
+    level = row[:level].to_i
+    id    = row[:id].to_i
 
     # create kh stuff 
     # ###############
@@ -98,13 +106,20 @@ csv_files.each do |csv_file|
       if kh_text.nil? or kh_text.empty?
         log "Skipping file:#{csv_file}, level:#{level}, column:#{header}, id:#{id} as text was missing or blank"
       else
-        kh_line[header] = kh_text
+
+        if header == :kh_answer
+          kh_line[remove_lang_prefix(header.to_s)] = convert_to_array(kh_text)
+        else
+          kh_line[remove_lang_prefix(header.to_s)] = kh_text
+        end
+
         do_image_conversion(kh_text, output_img_path(level, header, id, 'kh'))
       end
 
       kh_line['url']   = img_url_for_app(level, header, id, 'kh')
       kh_line['id']    = id
       kh_line['level'] = level
+      kh_line['type'] = 'app' 
     end
 
     # create en stuff 
@@ -115,13 +130,19 @@ csv_files.each do |csv_file|
       if en_text.nil? or en_text.empty?
         log "Skipping file:#{csv_file}, level:#{level}, column:#{header}, id:#{id} as text was missing or blank"
       else
-        en_line[header] = en_text
+        if header == :en_answer
+          en_line[remove_lang_prefix(header.to_s)] = convert_to_array(en_text)
+        else
+          en_line[remove_lang_prefix(header.to_s)] = en_text
+        end
+
         do_image_conversion(en_text, output_img_path(level, header, id, 'en'))
       end
 
       en_line['url']   = img_url_for_app(level, header, id, 'en')
       en_line['id']    = id
       en_line['level'] = level
+      en_line['type'] = 'app' 
     end
 
     # store each line before moving on to the next one
