@@ -10,6 +10,9 @@
 #   * ./locales/kh/quiz.json 
 #   * ./locales/kh/images/<lots of images>
 
+# IMPORTANT: currently this has to be run from the same dir as the script is in
+#            itself because of the way we call the phantomjs script
+
 # TODO
 # * write to a log file not STDOUT
 # * could probably remove the jquery requirement from the template
@@ -51,8 +54,9 @@ def build_img_url(level, header, id, lang, answer_index = nil)
 end
 
 def _build_path(prefix, level, header, id, lang, answer_index)
-  path = "#{prefix}/#{lang}/images/level-#{level}-#{header}-#{id}"
-  path = "#{path}-answer-#{answer_index}" if answer_index
+  generic_header = remove_lang_prefix(header.to_s)
+  path = "#{prefix}/#{lang}/images/level_#{level}_id_#{id}_#{generic_header}"
+  path = "#{path}_choice_#{answer_index}" if answer_index
   path = "#{path}.png"
   path
 end
@@ -63,8 +67,10 @@ def write_to_file(data, file_path)
 end
 
 def do_image_conversion(text, img_path)
-  # log "Converting: '#{text}' into #{img_path}"
-  exit_status = system("phantomjs", "#{script_dir}/convert-to-png.js", text, img_path)
+  log "Converting: '#{text}' into #{img_path}"
+  puts "WARNING: overwriting #{img_path}" if File.exists?(img_path)
+  exit_status = system("phantomjs", "convert-to-png.js", text, img_path)
+  # exit_status = system("phantomjs", "#{script_dir}/convert-to-png.js", text, img_path)
   raise "Conversion failure: failed to convert '#{text}' into #{img_path}. phantomjs exited with #{exit_status}" unless exit_status 
   print "." # just so our users can see we aren't dead
 end
@@ -82,19 +88,19 @@ def log(message)
 end
 
 def process_row(lang, row)
-  line = {}
+  output = {}
   level = row[:level].to_i
   id    = row[:id].to_i
 
   headers = []
 
   case lang
-  when :kh
-    headers = [:kh_question, :kh_question_2, :kh_correct]
-    answer_header = :kh_answer
-  when :en
-    headers = [:en_question, :en_question_2, :en_correct]
-    answer_header = :en_answer
+  when 'kh'
+    headers = [:kh_question_1, :kh_question_2, :kh_correct_answer]
+    answer_header = :kh_answers
+  when 'en'
+    headers = [:en_question_1, :en_question_2, :en_correct_answer]
+    answer_header = :en_answers
   end
 
   headers.each do |header|
@@ -106,32 +112,31 @@ def process_row(lang, row)
       next
     end
 
-    do_image_conversion(text, build_img_path(level, header, id, 'en'))
+    do_image_conversion(text, build_img_path(level, header, id, lang))
 
     a = {}
     a["text"] = text
-    a["url"] = build_img_url(level, header, id, 'en')
+    a["url"] = build_img_url(level, header, id, lang)
 
-    line[key] = a
+    output[key] = a
   end
 
   answers = convert_to_array(row[answer_header])
   output_answers = []
 
   answers.each_with_index do |answer, i|
-    do_image_conversion(answer, build_img_path(level, answer_header, id, 'en', i))
+    do_image_conversion(answer, build_img_path(level, answer_header, id, lang, i))
     a = {}
     a["text"] = answer
-    a["url"] = build_img_url(level, answer_header, id, 'en', i)
+    a["url"] = build_img_url(level, answer_header, id, lang, i)
     output_answers << a
   end
 
-  line["answers"] = output_answers
-  line['type']  = 'app' 
-  line['level'] = row[:level].to_i
-  line['id']    = row[:id].to_i
-
-  line
+  output["answers"] = output_answers
+  output['type']    = 'app' 
+  output['level']   = row[:level].to_i
+  output['id']      = row[:id].to_i
+  output
 end
 
 # begin main program
@@ -142,8 +147,8 @@ en_processed_rows = []
 
 csv_files.each do |csv_file|
   CSV.foreach(csv_file, csv_options) do |row|
-    kh_processed_rows << process_row(:kh, row)
-    en_processed_rows << process_row(:en, row)
+    kh_processed_rows << process_row('kh', row)
+    en_processed_rows << process_row('en', row)
   end
 end 
 

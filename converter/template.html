@@ -1,6 +1,6 @@
 <html>
   <head>
-    <!-- Khmer will not display correctly unless you specify the charset -->
+    <!-- IMPORTANT: Khmer will not display correctly unless you specify the charset -->
     <meta charset="utf-8">
     <style> 
 
@@ -30,7 +30,10 @@
   </head>
   <body>
     <div id="container">
-      <div id="text"></div>
+      <!-- IMPORTANT: We need some Khmer in the page or phantomjs will not render the khmer we inject (wtf!) -->
+      <div id="text">
+        តើមានមនុស្សប៉ុន្មានផ្
+      </div>
     </div>
   </body>
 </html>

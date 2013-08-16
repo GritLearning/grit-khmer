@@ -33,6 +33,9 @@ page.open('./template.html', function () {
   dimensions = page.evaluate(function (text) {
     // This JS is evaluated in the context of the webpage and has jQuery
     // available
+    
+    // console.log('Text to convert: ' + text);
+
     $('#text').html(text);
     return {
       width: $('#container').width(),
