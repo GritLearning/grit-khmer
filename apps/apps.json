@@ -34,7 +34,7 @@
 {
     "id": 5,
     "name": "Math for kids",
-    "launchCommand": "sages360.lms.pub.android",
+    "launchCommand": "com.snoringpanda.math.kids",
     "icon": "content/apps/images/math_for_kids.png",
     "type": "app",
     "level": 2
@@ -57,7 +57,7 @@
 },
 {
     "id": 8,
-    "name": "Fun and Learn: Math Power Lite",
+    "name": "Fun and Learn: Math Power",
     "launchCommand": "com.spaceO.mathpower",
     "icon": "content/apps/images/fun_and_learn.png",
     "type": "app",
@@ -74,7 +74,7 @@
 {
     "id": 10,
     "name": "Kids Numbers and Math",
-    "launchCommand": "zok.android.numbers",
+    "launchCommand": "com.anahoret.android.numbers",
     "icon": "content/apps/images/kids_numbers_math.png",
     "type": "app",
     "level": 5
@@ -90,7 +90,7 @@
 {
     "id": 12,
     "name": "Max Math Magic for Kids",
-    "launchCommand": "com.anthem.mathsmagic",
+    "launchCommand": "com.antheminfotech.mathmagicpro",
     "icon": "content/apps/images/max_math_magic.png",
     "type": "app",
     "level": 6 
@@ -114,7 +114,7 @@
 {
     "id": 15,
     "name": "Mad Math 4 Kids",
-    "launchCommand": "air.com.zoki.madmathkidsfree",
+    "launchCommand": "air.com.zoki.madmathkids",
     "icon": "content/apps/images/mad_math_kids.png",
     "type": "app",
     "level": 7
@@ -154,7 +154,7 @@
 {
     "id": 20,
     "name": "Einstein Math Academy",
-    "launchCommand": "com.eddiehsu.mathgame",
+    "launchCommand": "com.eddiehsu.mathgame.fortherich",
     "icon": "content/apps/images/einstein.png",
     "type": "app",
     "level": 10
@@ -162,7 +162,7 @@
 {
     "id": 21,
     "name": "Math Maniac",
-    "launchCommand": "de.math.maniac",
+    "launchCommand": "de.math.maniac.ultimate",
     "icon": "content/apps/images/math_maniac.png",
     "type": "app",
     "level": 10
@@ -179,7 +179,7 @@
 {
     "id": 23,
     "name": "Math Workout",
-    "launchCommand": "com.akbur.mathsworkout",
+    "launchCommand": "net.mathsworkout",
     "icon": "content/apps/images/math_workout.png",
     "type": "app",
     "level": 11
