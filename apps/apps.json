@@ -99,7 +99,7 @@
     "id": 13,
     "name": "Montessori 1",
     "launchCommand": "com.alsoft.montessori1",
-    "icon": "content/apps/images/com.alsoft.montessori1.jpg",
+    "icon": "content/apps/images/com.alsoft.montessori1.png",
     "type": "app",
     "level": 6
 },
