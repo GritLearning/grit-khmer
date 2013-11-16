@@ -2,13 +2,13 @@
 
 # Usage:
 #
-#   ruby ./converter.rb foo.csv bar.csv
+#   ruby ./converter.rb ../inputs/*.csv
 #
 # will create:
-#   * ./locales/en/quiz.json 
-#   * ./locales/en/images/<lots of images>
-#   * ./locales/kh/quiz.json 
-#   * ./locales/kh/images/<lots of images>
+#   * ../locales/en/quiz.json 
+#   * ../locales/en/images/<lots of images>
+#   * ../locales/kh/quiz.json 
+#   * ../locales/kh/images/<lots of images>
 
 # IMPORTANT: currently this has to be run from the same dir as the script is in
 #            itself because of the way we call the phantomjs script
