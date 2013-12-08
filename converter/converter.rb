@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# This script converts CSV to JSON (and optionally creates PNG renderings of each element of the JSON
+# 
 # Usage:
 #
 #   ruby ./converter.rb ../inputs/*.csv
@@ -66,14 +68,13 @@ def write_to_file(data, file_path)
   log "Created #{file_path}" 
 end
 
-def do_image_conversion(text, img_path)
-  log "Converting: '#{text}' into #{img_path}"
-  puts "WARNING: overwriting #{img_path}" if File.exists?(img_path)
-  exit_status = system("phantomjs", "convert-to-png.js", text, img_path)
-  # exit_status = system("phantomjs", "#{script_dir}/convert-to-png.js", text, img_path)
-  raise "Conversion failure: failed to convert '#{text}' into #{img_path}. phantomjs exited with #{exit_status}" unless exit_status 
-  print "." # just so our users can see we aren't dead
-end
+# def do_image_conversion(text, img_path)
+#   log "Converting: '#{text}' into #{img_path}"
+#   puts "WARNING: overwriting #{img_path}" if File.exists?(img_path)
+#   exit_status = system("phantomjs", "convert-to-png.js", text, img_path)
+#   raise "Conversion failure: failed to convert '#{text}' into #{img_path}. phantomjs exited with #{exit_status}" unless exit_status 
+#   print "." # just so our users can see we aren't dead
+# end
 
 def convert_to_array(string)
   string.split(/\s*,\s*/)
@@ -112,7 +113,7 @@ def process_row(lang, row)
       next
     end
 
-    do_image_conversion(text, build_img_path(level, header, id, lang))
+    # do_image_conversion(text, build_img_path(level, header, id, lang))
 
     a = {}
     a["text"] = text
@@ -125,7 +126,7 @@ def process_row(lang, row)
   output_answers = []
 
   answers.each_with_index do |answer, i|
-    do_image_conversion(answer, build_img_path(level, answer_header, id, lang, i))
+    # do_image_conversion(answer, build_img_path(level, answer_header, id, lang, i))
     a = {}
     a["text"] = answer
     a["url"] = build_img_url(level, answer_header, id, lang, i)
