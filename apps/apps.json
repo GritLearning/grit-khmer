@@ -1,130 +1,98 @@
 [
-{
+  {
     "id": 1,
-    "name": "Foundation Math",
-    "launchCommand": "uk.co.readwritephonics.maths123",
-    "icon": "content/apps/images/uk.co.readwritephonics.maths123.png",
+    "name": "Counting Robot",
+    "launchCommand": "com.cdarrow.countingrobot",
+    "icon": "content/apps/images/com.cdarrow.countingrobot.png",
     "type": "app",
     "level": 1
-},
-{
+  },
+  {
     "id": 2,
-    "name": "Junior Math",
-    "launchCommand": "com.nibhav.android.juniormathfree",
-    "icon": "content/apps/images/com.nibhav.android.juniormathfree.png",
-    "type": "app",
-    "level": 1
-},
-{
-    "id": 3,
-    "name": "Mathemagica",
-    "launchCommand": "com.remarkable.mathemagica",
-    "icon": "content/apps/images/com.remarkable.mathemagica.png",
-    "type": "app",
-    "level": 1
-},
-{
-    "id": 4,
-    "name": "Kindergarten Math",
-    "launchCommand": "com.infinut.kindergarten.math",
-    "icon": "content/apps/images/com.infinut.kindergarten.math.png",
-    "type": "app",
-    "level": 2
-},
-{
-    "id": 5,
-    "name": "Math Genie Grade Two",
-    "launchCommand": "com.funtastic.mathgenie.gradetwo",
-    "icon": "content/apps/images/com.funtastic.mathgenie.gradetwo.png",
-    "type": "app",
-    "level": 2
-},
-{
-    "id": 6,
-    "name": "MathOpen",
-    "launchCommand": "com.mathopen.androidmath",
-    "icon": "content/apps/images/com.mathopen.androidmath.png",
-    "type": "app",
-    "level": 2 
-},
-{
-    "id": 7,
-    "name": "Mathemagica",
-    "launchCommand": "com.remarkable.mathemagica",
-    "icon": "content/apps/images/com.remarkable.mathemagica.png",
-    "type": "app",
-    "level": 3
-},
-{
-    "id": 8,
-    "name": "Just2Long",
-    "launchCommand": "uk.henspace.memory",
-    "icon": "content/apps/images/uk.henspace.memory.png",
-    "type": "app",
-    "level": 3
-},
-{
-    "id": 9,
-    "name": "Junior Math",
-    "launchCommand": "com.nibhav.android.juniormathfree",
-    "icon": "content/apps/images/com.nibhav.android.juniormathfree.png",
-    "type": "app",
-    "level": 3
-},
-{
-    "id": 10,
     "name": "Okta's Rescue",
     "launchCommand": "air.com.learningtoday.octopusAndroid2",
     "icon": "content/apps/images/air.com.learningtoday.octopusAndroid2.png",
     "type": "app",
+    "level": 1
+  },
+  {
+    "id": 3,
+    "name": "Kids Math",
+    "launchCommand": "com.shinycube.android.fun4kids.kidsmath",
+    "icon": "content/apps/images/com.shinycube.android.fun4kids.kidsmath.png",
+    "type": "app",
+    "level": 2
+  },
+  {
+    "id": 4,
+    "name": "Cool Fun Kids Math Game",
+    "launchCommand": "com.mathopen.androidmath",
+    "icon": "content/apps/images/com.mathopen.androidmath.png",
+    "type": "app",
+    "level": 2
+  },
+  {
+    "id": 5,
+    "name": "Foundation Math",
+    "launchCommand": "uk.co.readwritephonics.maths123",
+    "icon": "content/apps/images/uk.co.readwritephonics.maths123.png",
+    "type": "app",
+    "level": 3
+  },
+  {
+    "id": 6,
+    "name": "Kids Numbers and Math",
+    "launchCommand": "zok.android.numbers",
+    "icon": "content/apps/images/zok.android.numbers.png",
+    "type": "app",
+    "level": 3
+  },
+  {
+    "id": 7,
+    "name": "Maths for kids",
+    "launchCommand": "sages360.lms.pub.android",
+    "icon": "content/apps/images/sages360.lms.pub.android.png",
+    "type": "app",
     "level": 4
-},
-{
+  },
+  {
+    "id": 8,
+    "name": "Monkey Math School Sunshine",
+    "launchCommand": "com.thup.MonkeyMath",
+    "icon": "content/apps/images/com.thup.MonkeyMath.png",
+    "type": "app",
+    "level": 4
+  },
+  {
+    "id": 9,
+    "name": "Kindergarten Math",
+    "launchCommand": "com.infinut.kindergarten.math",
+    "icon": "content/apps/images/com.infinut.kindergarten.math.png",
+    "type": "app",
+    "level": 5
+  },
+  {
+    "id": 10,
+    "name": "Math Slash",
+    "launchCommand": "com.CelleCgames.MathSlash",
+    "icon": "content/apps/images/com.CelleCgames.MathSlash.png",
+    "type": "app",
+    "level": 5
+  },
+  {
     "id": 11,
-    "name": "Mathemagica",
-    "launchCommand": "com.remarkable.mathemagica",
-    "icon": "content/apps/images/com.remarkable.mathemagica.png",
-    "type": "app",
-    "level": 4
-},
-{
-    "id": 12,
-    "name": "Max Math Magic for Kids",
-    "launchCommand": "com.antheminfotech.mathmagicpro",
-    "icon": "content/apps/images/com.antheminfotech.mathmagicpro.png",
-    "type": "app",
-    "level": 4 
-},
-{
-    "id": 13,
-    "name": "Mathemagica",
-    "launchCommand": "com.remarkable.mathemagica",
-    "icon": "content/apps/images/com.remarkable.mathemagica.png",
-    "type": "app",
-    "level": 5
-},
-{
-    "id": 14,
-    "name": "Monkey Math School Sunshine",
-    "launchCommand": "com.thup.MonkeyMath",
-    "icon": "content/apps/images/com.thup.MonkeyMath.png",
-    "type": "app",
-    "level": 5
-},
-{
-    "id": 15,
-    "name": "Kids Math Blocks",
-    "launchCommand": "l.sumitblocksfree",
-    "icon": "content/apps/images/l.sumitblocksfree.png",
-    "type": "app",
-    "level": 6 
-},
-{
-    "id": 16,
-    "name": "Monkey Math School Sunshine",
-    "launchCommand": "com.thup.MonkeyMath",
-    "icon": "content/apps/images/com.thup.MonkeyMath.png",
+    "name": "Monkey Math Jetpack Adventure",
+    "launchCommand": "com.giggleup.MMJA",
+    "icon": "content/apps/images/com.giggleup.MMJA.png",
     "type": "app",
     "level": 6
-}
+  },
+  {
+    "id": 12,
+    "name": "Math Stack",
+    "launchCommand": "com.CelleCGames.MathStack",
+    "icon": "content/apps/images/com.CelleCGames.MathStack.png",
+    "type": "app",
+    "level": 6
+  }
 ]
